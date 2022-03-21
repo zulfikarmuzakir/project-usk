@@ -81,6 +81,47 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role->name }}</td>
                                     <td>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editUser-{{ $user->id }}">
+                                            Edit
+                                        </button>
+                                        <div class="modal fade" id="editUser-{{ $user->id }}" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="editUserLabel">Insert New Item</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                            <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('PATCH')
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="price">Price</label>
+                                                        <input type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="role">Role</label>
+                                                        <select name="role_id" class="form-select">
+                                                            @foreach($roles as $role)
+                                                                <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                </div>
+                                            </form>
+                                            </div>
+                                            </div>
+                                        </div>
                                         <a href="{{ route('admin.users.delete', ["id" => $user->id]) }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

@@ -43,6 +43,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('bank.topup') }}" class="nav-link">Topup</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('bank.topup.request') }}" class="nav-link">Topup Request</a>
+                            </li>
                             @endif
                             @if (Auth::user()->role_id == 3)
                             <li class="nav-item">
@@ -52,6 +55,9 @@
                             @if (Auth::user()->role_id == 4)
                             <li class="nav-item">
                                 <a href="{{ route('user.wallet') }}" class="nav-link">Wallet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.shop') }}" class="nav-link">Shop</a>
                             </li>
                             @endif
                         @endauth

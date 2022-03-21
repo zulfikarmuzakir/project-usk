@@ -41,5 +41,12 @@ class BankController extends Controller
         return redirect()->back()->with('success', 'Topup successful');
     }
 
+    public function topup_request()
+    {
+        $transactions = Transaction::where('type', 1)->where('status', 1)->get();
+
+        return view('bank.topup-request', compact('transactions'));
+    }
+
 
 }

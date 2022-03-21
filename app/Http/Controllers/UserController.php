@@ -2,54 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Wallet;
+use App\Models\Transaction;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
-    {
-        if(Auth::user()->role_id != 1) {
-            return redirect()->back();
-        }
-
-        $data = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed',
-            'role_id' => 'required',
-        ]);
-
-        $user = User::create($data);
-
-        if ($request->role_id == 4) {
-            Wallet::create([
-                'user_id' => $user->id,
-                'wallet_address' => mt_rand(100000000000, 999999999999),
-                'balance' => 0,
-            ]);
-        }
-
-        return redirect()->back()->with('success', 'User created successfully');
-    }
-    
-    public function delete_user($id) {
-        if(Auth::user()->role_id != 1) {
-            return redirect()->back();
-        }
-
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect()->back()->with('success', 'User deleted successfully');
-    }
-
     public function wallet()
     {
         $wallet = Wallet::where('user_id', Auth::user()->id)->first();
 
         return view('user.wallet', compact('wallet'));
+    }
+
+    public function topup_request(Request $request)
+    {
+        $this->validate($request, [
+            'amount' => 'required|numeric',
+        ]);
+
+        $transaction = Transaction::create([
+            'user_id' => Auth::user()->id,
+            'transaction_code' => "CODE_".Auth::user()->id.mt_rand(100000000000, 999999999999),
+            'amount' => $request->amount,
+            'type' => 1,
+            'status' => 1,
+        ]);
+
+        return redirect()->back()->with('success', 'Topup request sent');
+    }
+
+    public function shop()
+    {
+        $items = Item::all();
+
+        return view('user.shop', compact('items'));
     }
 }
