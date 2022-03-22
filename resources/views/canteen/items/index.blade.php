@@ -22,9 +22,13 @@
                                 <h5 class="modal-title" id="newUserLabel">Insert New Item</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                            <form action="{{ route('canteen.items.store') }}" method="POST">
+                            <form action="{{ route('canteen.items.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="name">Image</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
                                     <div class="mb-3">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" name="name">
@@ -55,6 +59,7 @@
                        <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Price</th>
@@ -65,6 +70,7 @@
                             <tbody>
                                 @foreach ($items as $item)
                                     <tr>
+                                        <td><img src="{{ asset('images/'.$item->image) }}" style="width: 100px" alt=""></td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>{{ $item->price }}</td>
@@ -85,10 +91,14 @@
                                                     <h5 class="modal-title" id="editItemLabel">Insert New Item</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                <form action="{{ route('canteen.items.update', $item->id) }}" method="POST">
+                                                <form action="{{ route('canteen.items.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="name">Image</label>
+                                                            <input type="file" class="form-control" name="image">
+                                                        </div>
                                                         <div class="mb-3">
                                                             <label for="name">Name</label>
                                                             <input type="text" class="form-control" name="name" value="{{ $item->name }}">

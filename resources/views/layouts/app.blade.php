@@ -18,10 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    @stack('styles')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm no-print">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -39,17 +41,26 @@
                                 <a href="{{ route('admin.users.index') }}" class="nav-link">Users</a>
                             </li>
                             @endif
-                            @if (Auth::user()->role_id == 2)
+                            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                             <li class="nav-item">
-                                <a href="{{ route('bank.topup') }}" class="nav-link">Topup</a>
+                                <a href="{{ route('topup.create') }}" class="nav-link">Topup</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('bank.topup.request') }}" class="nav-link">Topup Request</a>
+                                <a href="{{ route('topup.request') }}" class="nav-link">Topup Request</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('topup.history') }}" class="nav-link">Topup History</a>
                             </li>
                             @endif
                             @if (Auth::user()->role_id == 3)
                             <li class="nav-item">
-                                <a href="{{ route('canteen.items') }}" class="nav-link">Items</a>
+                                <a href="{{ route('canteen.items') }}" class="nav-link">Items</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('canteen.orders') }}" class="nav-link">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('canteen.history') }}" class="nav-link">Order History</a>
                             </li>
                             @endif
                             @if (Auth::user()->role_id == 4)
@@ -58,6 +69,12 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('user.shop') }}" class="nav-link">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.cart') }}" class="nav-link">Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.history') }}" class="nav-link">Transaction History</a>
                             </li>
                             @endif
                         @endauth
@@ -107,5 +124,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 </html>

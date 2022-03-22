@@ -19,10 +19,7 @@ class AdminController extends Controller
 
     public function store_user(Request $request)
     {
-        if(Auth::user()->role_id != 1) {
-            return redirect()->back();
-        }
-        
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
@@ -37,7 +34,7 @@ class AdminController extends Controller
             'role_id' => $request->role_id,
         ]);
 
-        if ($request->role_id == 4) {
+        if ($request->role_id == 4 || $request->role_id == 3) {
             Wallet::create([
                 'user_id' => $user->id,
                 'wallet_address' => mt_rand(100000000000, 999999999999),
@@ -50,9 +47,6 @@ class AdminController extends Controller
 
     public function delete_user($id)
     {
-        if(Auth::user()->role_id != 1) {
-            return redirect()->back();
-        }
 
         $user = User::find($id);
         $user->delete();
@@ -62,9 +56,7 @@ class AdminController extends Controller
 
     public function update_user(Request $request, $id)
     {
-        if(Auth::user()->role_id != 1) {
-            return redirect()->back();
-        }
+       
 
         $user = User::find($id);
 

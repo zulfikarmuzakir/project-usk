@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('item_id')->nullable()->constrained();
-            $table->string("transaction_code")->unique();
-            $table->string('amount');
+            $table->string("transaction_code");
+            $table->integer("quantity")->nullable();
+            $table->integer('total');
             $table->integer("type");
             $table->integer("status");
             $table->timestamps();

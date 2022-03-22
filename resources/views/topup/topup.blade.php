@@ -11,7 +11,7 @@
                         <h2>Topup</h2>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('bank.topup.store') }}" method="POST">
+                        <form action="{{ route('topup.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="name">Wallet Address</label>

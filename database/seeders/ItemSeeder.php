@@ -21,6 +21,7 @@ class ItemSeeder extends Seeder
                 'price' => 20000,
                 'description' => 'Ini adalah item ke '.$i,
                 'stock' => 30 + $i,
+                'image' => 'nasi-goreng.jpeg',
             ]); 
         }
 

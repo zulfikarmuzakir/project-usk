@@ -19,19 +19,19 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin = Role::create([
-            'name' => 'admin',
+            'name' => 'Admin',
         ]);
 
         $bank= Role::create([
-            'name' => 'bank',
+            'name' => 'Bank',
         ]);
 
         $canteen = Role::create([
-            'name' => 'canteen',
+            'name' => 'Canteen',
         ]);
 
         $user = Role::create([
-            'name' => 'user',
+            'name' => 'User',
         ]);
 
         $admin_account = User::create([
@@ -64,6 +64,12 @@ class UserSeeder extends Seeder
 
         Wallet::create([
             'user_id' => $user_account->id,
+            'wallet_address' => mt_rand(100000000000, 999999999999),
+            'balance' => 0,
+        ]);
+
+        Wallet::create([
+            'user_id' => $canteen_account->id,
             'wallet_address' => mt_rand(100000000000, 999999999999),
             'balance' => 0,
         ]);

@@ -15,11 +15,17 @@ class Transaction extends Model
         'transaction_code',
         'type',
         'status',
-        'amount',
+        'total',
+        'quantity'
     ];
 
     public function user()
     {
-    return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function wallet()
+    {
+        return $this->hasOneThrough(Wallet::class, User::class, 'id', 'user_id', 'user_id', 'id');
     }
 }

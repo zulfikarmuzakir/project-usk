@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('item_id')->nullable()->constrained();
             $table->integer('quantity');
+            $table->integer('total');
             $table->timestamps();
         });
     }
