@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Store</h2>
                     </div>
                     <div class="card-body">

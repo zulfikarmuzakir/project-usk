@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>User Transaction History</h2>
                     </div>
                     <div class="card-body">
-                        <button class="btn btn-primary no-print" onclick="printPage()">Print</button>
+                        <button class="btn bg-color-primary no-print" onclick="printPage()">Print</button>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -28,11 +28,11 @@
                                         <td>{{ $transaction->transaction_code }}</td>
                                         <td>Rp {{ number_format($transaction->total, "2", ",", ".") }}</td>
                                         <td>@if ($transaction->status == 3)
-                                            <span class="badge bg-success">Approved</span>
+                                            <span class="badge bg-color-success">Approved</span>
                                             @elseif ($transaction->status == 2)
-                                            <span class="badge bg-danger">Rejected</span>
+                                            <span class="badge bg-color-danger">Rejected</span>
                                             @else
-                                            <span class="badge bg-warning">Pending</span>
+                                            <span class="badge bg-color-warning">Pending</span>
                                             @endif
                                         </td>
                                     </tr>

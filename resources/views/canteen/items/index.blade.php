@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         Items
                     </div>
                     <div class="card-body">
 
-                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#newUser">
+                        <button type="button" class="btn bg-color-primary mb-3" data-bs-toggle="modal" data-bs-target="#newUser">
                             New
                         </button>
                         <div class="modal fade" id="newUser" tabindex="-1" aria-labelledby="newUserLabel" aria-hidden="true">
@@ -48,8 +48,8 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn bg-color-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn bg-color-primary">Save</button>
                                 </div>
                             </form>
                             </div>
@@ -76,13 +76,13 @@
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->stock }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editItem-{{ $item->id }}">
+                                            <button type="button" class="btn bg-color-info" data-bs-toggle="modal" data-bs-target="#editItem-{{ $item->id }}">
                                                 Edit
                                             </button>
                                             <form action="{{ route('canteen.items.delete', $item->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn bg-color-danger">Delete</button>
                                             </form>
                                             <div class="modal fade" id="editItem-{{ $item->id }}" tabindex="-1" aria-labelledby="editItemLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -118,8 +118,8 @@
                                                     </div>
                     
                                                     <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                    <button type="button" class="btn bg-color-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn bg-color-primary">Save</button>
                                                     </div>
                                                 </form>
                                                 </div>

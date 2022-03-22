@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/orders/approve/{id}', [CanteenController::class, 'approve_order'])->name('canteen.order.approve');
             Route::put('/orders/reject/{id}', [CanteenController::class, 'reject_order'])->name('canteen.order.reject');
             Route::get("/history", [CanteenController::class, 'history'])->name("canteen.history");
+            Route::get('/wallet', [CanteenController::class, 'wallet'])->name('canteen.wallet');
         });
     });
 

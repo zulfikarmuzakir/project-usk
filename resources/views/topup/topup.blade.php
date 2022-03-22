@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 bg-white p-4">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Topup</h2>
                     </div>
                     <div class="card-body">
@@ -22,7 +22,7 @@
                                 <input type="integer" class="form-control" name="amount">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Topup</button>
+                            <button type="submit" class="btn bg-color-primary">Topup</button>
                         </form>
                     </div>
                 </div>

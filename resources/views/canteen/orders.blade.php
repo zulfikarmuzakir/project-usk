@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Order</h2>
                     </div>
                     <div class="card-body">
@@ -31,12 +31,12 @@
                                                   @csrf
                                                   @method('PUT')
                                                   <input type="hidden" name="transaction_code" value="{{ $transaction->transaction_code }}">
-                                                  <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                                                  <button type="submit" class="btn btn-sm bg-color-success">Approve</button>
                                              </form>
                                              <form action="{{ route('canteen.order.reject', $transaction->id) }}" method="POST">
                                                   @csrf
                                                   @method('PUT')
-                                                  <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                                                  <button type="submit" class="btn btn-sm btn-color-danger">Reject</button>
                                              </form>
                                        </td>
                                     </tr>

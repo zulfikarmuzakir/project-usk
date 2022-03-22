@@ -62,6 +62,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('canteen.history') }}" class="nav-link">Order History</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('canteen.wallet') }}" class="nav-link">Wallet</a>
+                            </li>
                             @endif
                             @if (Auth::user()->role_id == 4)
                             <li class="nav-item">

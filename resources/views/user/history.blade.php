@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>User Transaction History</h2>
                     </div>
                     <div class="card-body">
-                        <button class="btn btn-primary no-print" onclick="printPage()">Print</button>
+                        <button class="btn bg-color-primary no-print" onclick="printPage()">Print</button>
                         <table class="table">
                             <thead>
                                 <tr>

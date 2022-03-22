@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Topup Request</h2>
                     </div>
                     <div class="card-body">
@@ -32,12 +32,12 @@
                                             <form action="{{ route('topup.approve', $transaction->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
-                                                <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                                                <button type="submit" class="btn btn-sm bg-color-success">Approve</button>
                                             </form>
                                             <form action="{{ route('topup.reject', $transaction->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
-                                                <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                                                <button type="submit" class="btn btn-sm bg-color-danger">Reject</button>
                                             </form>
                                         </td>
                                     </tr>

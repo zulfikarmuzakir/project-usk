@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Cart</h2>
                     </div>
                     <div class="card-body">
@@ -39,7 +39,7 @@
 
                             <form action="{{ route('user.checkout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">Checkout</button>
+                                <button type="submit" class="btn bg-color-primary">Checkout</button>
                             </form>
                         </div>
                     </div>

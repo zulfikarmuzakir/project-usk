@@ -7,13 +7,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-color-secondary">
                         <h2>Users</h2>
                     </div>
                     <div class="card-body">
                         
                         <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
+                    <button type="button" class="btn bg-color-primary" data-bs-toggle="modal" data-bs-target="#newUser">
                         New
                     </button>
                     
@@ -81,7 +81,7 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role->name }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editUser-{{ $user->id }}">
+                                        <button type="button" class="btn bg-color-info" data-bs-toggle="modal" data-bs-target="#editUser-{{ $user->id }}">
                                             Edit
                                         </button>
                                         <div class="modal fade" id="editUser-{{ $user->id }}" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
@@ -101,7 +101,7 @@
                                                     </div>
                                                     
                                                     <div class="mb-3">
-                                                        <label for="price">Price</label>
+                                                        <label for="price">Email</label>
                                                         <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                                                     </div>
                                                     <div class="mb-3">
@@ -122,7 +122,7 @@
                                             </div>
                                             </div>
                                         </div>
-                                        <a href="{{ route('admin.users.delete', ["id" => $user->id]) }}" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('admin.users.delete', ["id" => $user->id]) }}" class="btn bg-color-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

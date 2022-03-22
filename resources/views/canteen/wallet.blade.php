@@ -17,15 +17,6 @@
                               <p class="card-text">Rp {{ number_format($wallet->balance,2,',','.') }}</p>
                             </div>
                           </div>
-                        <form action="{{ route('user.topup.request') }}" method="POST">
-                            @csrf
-                            <div class="form-group mb-3">
-                                <label for="amount">Amount</label>
-                                <input type="integer" class="form-control" name="amount">
-                            </div>
-
-                            <button type="submit" class="btn bg-color-primary">Topup</button>
-                        </form>
                     </div>
                 </div>
             </div>

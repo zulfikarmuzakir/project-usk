@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 @if(Auth::user()->role_id == 1)
-                    <div class="card-header">{{ __('Admin Dashboard') }}</div>
+                    <div class="card-header bg-color-primary">{{ __('Admin Dashboard') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -17,7 +17,7 @@
                         {{ __('You are logged in!') }}
                     </div>
                 @elseif(Auth::user()->role_id == 2)
-                    <div class="card-header">{{ __('Bank Dashboard') }}</div>
+                    <div class="card-header bg-color-primary">{{ __('Bank Dashboard') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -28,7 +28,7 @@
                         {{ __('You are logged in!') }}
                     </div>
                 @elseif(Auth::user()->role_id == 3)
-                    <div class="card-header">{{ __('Canteen Dashboard') }}</div>
+                    <div class="card-header bg-color-primary">{{ __('Canteen Dashboard') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -39,7 +39,7 @@
                         {{ __('You are logged in!') }}
                     </div>
                 @elseif(Auth::user()->role_id == 4)
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
+                    <div class="card-header bg-color-primary">{{ __('User Dashboard') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

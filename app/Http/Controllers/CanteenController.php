@@ -129,4 +129,11 @@ class CanteenController extends Controller
 
         return view('canteen.history', compact('transactions'));
     }
+
+    public function wallet()
+    {
+        $wallet = Wallet::where('user_id', Auth::user()->id)->first();
+
+        return view('canteen.wallet', compact('wallet'));
+    }
 }
